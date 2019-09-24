@@ -1,5 +1,5 @@
 # bx.dual.sdk.android
-Android sdk for bx05/06
+This is the android version sdk for bx05/06 led controllers from onbon(www.onbonbx.com).
 
 ## Import to android studio
 1. copy sdk libs to directory 'libs'
@@ -7,7 +7,7 @@ Android sdk for bx05/06
 ![avatar](https://github.com/onbonlab/bx.dual.sdk.android/blob/master/doc/pic/copy%20libs.png)
 
 
-2. impletatoin in .gradle file like this
+2. implementation  in '.gradle' file like below
 ```gradle
 implementation files('libs/bx05-0.5.0-SNAPSHOT.jar')
 implementation files('libs/bx05.message-0.5.0-SNAPSHOT.jar')
@@ -19,4 +19,55 @@ implementation(name: 'java.awt4a-0.1-release', ext: 'aar')
 implementation (name:'serialport-1.0.1', ext:'aar')
 
 ```
+
+## Use the sdk
+1. Init the sdk in applicaion 
+The sdk must be initialized before it be used. It should be like this.
+```java
+try {
+      // init java.awt
+      AwtEnv.link(this);   
+      
+      // enable AntiAlias or not
+      // 是否启用抗
+      AwtEnv.configPaintAntiAliasFlag(false);     
+
+      // 初始化五代SDK
+      // init bx05 sdk
+      Bx5GEnv.initial();
+  
+      // 初始化六代SDK
+      // init bx06 sdk
+      Bx6GEnv.initial();
+  }
+  catch (Exception ex) {
+  }
+
+```
+
+2. Use it like below
+```java
+
+// Create screen object
+// 创建 screen 对象
+Bx5GScreenRS screen = new Bx5GScreenRS("Screen1");
+
+//
+// connect to the screen
+// 连接控制器
+screen.connect("/dev/ttyS4", Bx5GScreenRS.BaudRate.RATE_57600);
+
+// 
+// send command to screen
+// 发送命令到控制器
+screen.ping();
+
+......
+
+// disconnect
+// 断开连接
+screen.disconnect();
+```
+
+
 
