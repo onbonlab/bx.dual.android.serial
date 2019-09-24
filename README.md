@@ -29,7 +29,7 @@ try {
       AwtEnv.link(this);   
       
       // enable AntiAlias or not
-      // 是否启用抗
+      // 是否启用抗锯齿
       AwtEnv.configPaintAntiAliasFlag(false);     
 
       // 初始化五代SDK
@@ -48,8 +48,8 @@ try {
 2. Use it like below
 ```java
 
-// Create screen object
-// 创建 screen 对象
+// Create screen object, we create a bx05 screen using serial port
+// 创建 screen 对象，这里创建的是一个五代控制器的串口控制器对象
 Bx5GScreenRS screen = new Bx5GScreenRS("Screen1");
 
 //
@@ -68,6 +68,5 @@ screen.ping();
 // 断开连接
 screen.disconnect();
 ```
-
 
 
