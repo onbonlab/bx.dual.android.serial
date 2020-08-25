@@ -9,14 +9,20 @@ This is the android version sdk for bx05/06 led controllers from onbon(www.onbon
 
 2. implementation  in '.gradle' file like below
 ```gradle
+implementation files('libs/log4j-1.2.14.jar')
+implementation files('libs/simple-xml-2.7.1.jar')
+
+implementation files('libs/uia-utils-0.2.0.jar')
+implementation files('libs/uia-message-0.6.0.jar')
+implementation (name: 'uia-comm-android-release', ext: 'aar')
+
 implementation files('libs/bx05-0.5.0-SNAPSHOT.jar')
 implementation files('libs/bx05.message-0.5.0-SNAPSHOT.jar')
 implementation files('libs/bx06-0.6.0-SNAPSHOT.jar')
 implementation files('libs/bx06.message-0.6.0-SNAPSHOT.jar')
-implementation files('libs/simple-xml-2.7.1.jar')
-implementation (name:'uia.pack', ext:'aar')
-implementation(name: 'java.awt4a-0.1-release', ext: 'aar')
+
 implementation (name:'serialport-1.0.1', ext:'aar')
+implementation (name: 'java.awt4a-0.1-release', ext: 'aar')
 
 ```
 
